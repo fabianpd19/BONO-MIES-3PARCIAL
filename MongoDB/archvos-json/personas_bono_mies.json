@@ -1,0 +1,197 @@
+[{
+	"_id": {
+		"$oid": "62e38d89f6aa9a0a4e7ef094"
+	},
+	"nombre": "ÁLVARO",
+	"nombre2": "GABRIEL",
+	"apellido": "ALONSO",
+	"apellido2": "REYES",
+	"canton": "MACHALA",
+	"provincia": "ELORO",
+	"cedula": "0701396830",
+	"edad": "28",
+	"genero": "HOMBRE"
+},
+{
+	"_id": {
+		"$oid": "62e38d89f6aa9a0a4e7ef095"
+	},
+	"nombre": "FANNY",
+	"nombre2": "ISABEL",
+	"apellido": "ALTAMIRANO",
+	"apellido2": "CÁRDENAS",
+	"canton": "LORETO",
+	"provincia": "ORELLANA",
+	"cedula": "0300907441",
+	"edad": "43",
+	"genero": "MUJER"
+},
+{
+	"_id": {
+		"$oid": "62e38d89f6aa9a0a4e7ef096"
+	},
+	"nombre": "MARLON",
+	"nombre2": "DORIAN",
+	"apellido": "ALTAMIRANO",
+	"apellido2": "MOLINA",
+	"canton": "LATACUNGA",
+	"provincia": "COTOPAXI",
+	"cedula": "1711402980",
+	"edad": "52",
+	"genero": "HOMBRE"
+},
+{
+	"_id": {
+		"$oid": "62e38d89f6aa9a0a4e7ef097"
+	},
+	"nombre": "FRANKLIN",
+	"nombre2": "PAUL",
+	"apellido": "ALTAMIRANO",
+	"apellido2": "SÁNCHEZ",
+	"canton": "SANTACLARA",
+	"provincia": "PASTAZA",
+	"cedula": "1709262933",
+	"edad": "33",
+	"genero": "HOMBRE"
+},
+{
+	"_id": {
+		"$oid": "62e38d89f6aa9a0a4e7ef098"
+	},
+	"nombre": "MARCY",
+	"nombre2": "RODELY",
+	"apellido": "ALVARADO",
+	"apellido2": "CÓRDOVA",
+	"canton": "ROCAFUERTE",
+	"provincia": "MANABI",
+	"cedula": "0702884826",
+	"edad": "45",
+	"genero": "MUJER"
+},
+{
+	"_id": {
+		"$oid": "62e38d89f6aa9a0a4e7ef099"
+	},
+	"nombre": "SANDRA",
+	"nombre2": "XIMENA",
+	"apellido": "ALVARADO",
+	"apellido2": "JARRÍN",
+	"canton": "AGUARICO",
+	"provincia": "ORELLANA",
+	"cedula": "0104292461",
+	"edad": "44",
+	"genero": "MUJER"
+},
+{
+	"_id": {
+		"$oid": "62e38d89f6aa9a0a4e7ef09a"
+	},
+	"nombre": "JOSÉ",
+	"nombre2": "LUIS",
+	"apellido": "ALVARADO",
+	"apellido2": "PAREDES",
+	"canton": "SANTO DOMINGO",
+	"provincia": "SANTO DOMINGO TSACHILAS",
+	"cedula": "1803538246",
+	"edad": "19",
+	"genero": "HOMBRE"
+},
+{
+	"_id": {
+		"$oid": "62e38d89f6aa9a0a4e7ef09b"
+	},
+	"nombre": "ERIKA",
+	"nombre2": "FERNANDA",
+	"apellido": "ÁLVAREZ",
+	"apellido2": "GARCÍA",
+	"canton": "QUIJOS",
+	"provincia": "NAPO",
+	"cedula": "0301506044",
+	"edad": "34",
+	"genero": "MUJER"
+},
+{
+	"_id": {
+		"$oid": "62e38d89f6aa9a0a4e7ef09c"
+	},
+	"nombre": "AUGUSTOLEÓNARDO",
+	"nombre2": "",
+	"apellido": "ÁLVAREZ",
+	"apellido2": "LOAIZA",
+	"canton": "BAÑOS",
+	"provincia": "TUNGURAHUA",
+	"cedula": "1102955406",
+	"edad": "43",
+	"genero": "HOMBRE"
+},
+{
+	"_id": {
+		"$oid": "62e38d89f6aa9a0a4e7ef09d"
+	},
+	"nombre": "RUTH",
+	"nombre2": "CRISTINA",
+	"apellido": "ÁLVAREZ",
+	"apellido2": "TORAL",
+	"canton": "SALINA",
+	"provincia": "SANTAELENA",
+	"cedula": "0102250362",
+	"edad": "34",
+	"genero": "MUJER"
+},
+{
+	"_id": {
+		"$oid": "62e38d89f6aa9a0a4e7ef09e"
+	},
+	"nombre": "FERNANDO",
+	"nombre2": "XAVIER",
+	"apellido": "ANDRADE",
+	"apellido2": "ÁLVAREZ",
+	"canton": "GUAYAQUIL",
+	"provincia": "GUAYAS",
+	"cedula": "1306860105",
+	"edad": "20",
+	"genero": "HOMBRE"
+},
+{
+	"_id": {
+		"$oid": "62e38d89f6aa9a0a4e7ef09f"
+	},
+	"nombre": "ROMÁN",
+	"nombre2": "DEJESÚS",
+	"apellido": "ANDRADE",
+	"apellido2": "CÁRDENAS",
+	"canton": "CASCALES",
+	"provincia": "SUCUMBIOS",
+	"cedula": "0300985462",
+	"edad": "45",
+	"genero": "HOMBRE"
+},
+{
+	"_id": {
+		"$oid": "62e38d89f6aa9a0a4e7ef0a0"
+	},
+	"nombre": "MARCO",
+	"nombre2": "VINICIO",
+	"apellido": "ANDRADE",
+	"apellido2": "DAQUILEMA",
+	"canton": "PELILEO",
+	"provincia": "TUNGURAHUA",
+	"cedula": "0602863730",
+	"edad": "18",
+	"genero": "HOMBRE"
+},
+{
+	"_id": {
+		"$oid": "62e38d89f6aa9a0a4e7ef0a1"
+	},
+	"nombre": "VÍCTOR",
+	"nombre2": "MANOLO",
+	"apellido": "ANDRADE",
+	"apellido2": "ESPINOZA",
+	"canton": "RIOBAMBA",
+	"provincia": "CHIMBORAZO",
+	"cedula": "0301322251",
+	"edad": "33",
+	"genero": "HOMBRE"
+}]
+

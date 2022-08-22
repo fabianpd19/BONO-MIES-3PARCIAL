@@ -1,0 +1,405 @@
+[{
+	"_id": {
+		"$oid": "62e37e8599bbf1a57edefe85"
+	},
+	"provincia": "AZUAY",
+	"cantones": [
+		"CUENCA",
+		"GUALACEO",
+		"NABÓN",
+		"PAUTE",
+		"PUCARA",
+		"SAN FERNANDO",
+		"SANTA ISABEL",
+		"SIGSIG",
+		"OÑA",
+		"CHORDELEG",
+		"EL PAN",
+		"SEVILLA DE ORO",
+		"GUACHAPALA",
+		"CAMILO PONCE ENRÍQUEZ"
+	]
+},
+{
+	"_id": {
+		"$oid": "62e37f2f99bbf1a57edefe86"
+	},
+	"provincia": "BOLIVAR",
+	"cantones": [
+		"GUARANDA",
+		"CHIMBO",
+		"ECHEANDÍA",
+		"SAN MIGUEL",
+		"CALUMA",
+		"LAS NAVES"
+	]
+},
+{
+	"_id": {
+		"$oid": "62e3859299bbf1a57edefe87"
+	},
+	"provincia": "CAÑAR",
+	"cantones": [
+		"AZOGUES",
+		"BIBLIÁN",
+		"CAÑAR",
+		"LA TRONCAL",
+		"EL TAMBO ",
+		"DÉLEG",
+		"SUSCAL"
+	]
+},
+{
+	"_id": {
+		"$oid": "62e385e099bbf1a57edefe88"
+	},
+	"provincia": "CARCHI",
+	"cantones": [
+		"TULCÁN",
+		"BOLÍVAR",
+		"ESPEJO",
+		"MIRA",
+		"MONTÚFAR ",
+		"SAN PEDRO DE HUACA"
+	]
+},
+{
+	"_id": {
+		"$oid": "62e3864499bbf1a57edefe89"
+	},
+	"provincia": "COTOPAXI",
+	"cantones": [
+		"LATACUNGA",
+		"LA MANÁ",
+		"PANGUA",
+		"PUJILI",
+		"SALCEDO ",
+		"SAQUISILÍ",
+		"SIGCHOS"
+	]
+},
+{
+	"_id": {
+		"$oid": "62e386c699bbf1a57edefe8a"
+	},
+	"provincia": "CHIMBORAZO",
+	"cantones": [
+		"RIOBAMBA",
+		"ALAUSI",
+		"COLTA",
+		"CHAMBO",
+		"CHUNCHI ",
+		"GUAMOTE",
+		"GUANO",
+		"PALLATANGA",
+		"PENIPE",
+		"CUMANDÁ"
+	]
+},
+{
+	"_id": {
+		"$oid": "62e3907d99bbf1a57edefe8b"
+	},
+	"provincia": "EL ORO",
+	"cantones": [
+		"MACHALA",
+		"ARENILLAS",
+		"ATAHUALPA",
+		"BALSAS ",
+		"CHILLA",
+		"EL GUABO",
+		"HUAQUILLAS",
+		"MARCABELÍ",
+		"PASAJE",
+		"PIÑAS",
+		"PORTOVELO",
+		"SANTA ROSA",
+		"ZARUMA",
+		"LAS LAJAS"
+	]
+},
+{
+	"_id": {
+		"$oid": "62e3908299bbf1a57edefe8c"
+	},
+	"provincia": "GUAYAS",
+	"cantones": [
+		"GUAYAQUIL",
+		"DURAN",
+		"SAMBORONDON",
+		"DAULLE ",
+		"NOBOL",
+		"YAGUACHI",
+		"MILAGRO",
+		"PLAYAS "
+	]
+},
+{
+	"_id": {
+		"$oid": "62e3908899bbf1a57edefe8d"
+	},
+	"provincia": "IMBABURA",
+	"cantones": [
+		"IBARRA",
+		"ANTONIO ANTE",
+		"COTACACHI",
+		"OTAVALO ",
+		"PIMANPIRO",
+		"SAN MIGUEL DE URCUQUI "
+	]
+},
+{
+	"_id": {
+		"$oid": "62e393a499bbf1a57edefe8e"
+	},
+	"provincia": "LOJA",
+	"cantones": [
+		"SAN SEBASTIAN",
+		"SUCRE",
+		"EL  VALLE",
+		"SAGRARIO ",
+		"CHANTACO",
+		"CHUQUIRIBAMBA",
+		"MALACATOS",
+		"EL CISNE",
+		"GUALEL",
+		"JIMBILLA",
+		"SAN LUCAS",
+		"SAN PEDRO",
+		"SANTIAGO",
+		"TAQUIL",
+		"VILCABAMBA",
+		"YNGANA",
+		"QUINARA"
+	]
+},
+{
+	"_id": {
+		"$oid": "62e393b299bbf1a57edefe8f"
+	},
+	"provincia": "MANABI",
+	"cantones": [
+		"BOLIVAR",
+		"CHONE",
+		"EL CARMEN",
+		"FLAVIO ALFARO",
+		"JAMA",
+		"JARAMIJO",
+		"JIPIJAPA",
+		"JUNIN",
+		"MANTA",
+		"MONTECRISTI",
+		"OLMEDO",
+		"PAJAN",
+		"PEDERNALES",
+		"PORTOVIEJO",
+		"PUERTO LOPEZ",
+		"ROCAFUERTE",
+		"SAN VICENTE",
+		"SANTA ANA",
+		"SUCRE",
+		"TOSAGUA",
+		"VEINTICUATRO DE MAYO"
+	]
+},
+{
+	"_id": {
+		"$oid": "62e394d299bbf1a57edefe90"
+	},
+	"provincia": "MORONA SANTIAGO",
+	"cantones": [
+		"MORONA",
+		"GUALAQUIZA",
+		"HUAMBOOYA",
+		" LIMON INDANZA",
+		"LOGROÑO",
+		"PABLO SEXTO",
+		"PALORA",
+		"SAN JUAN BOSCO",
+		"SANTIAGO DE MENDEZ",
+		"SUCUA",
+		"TAISHA",
+		"TIWINTZA"
+	]
+},
+{
+	"_id": {
+		"$oid": "62e3950d99bbf1a57edefe91"
+	},
+	"provincia": "NAPO",
+	"cantones": [
+		"BOLIVAR",
+		"CHONE",
+		"EL CARMEN",
+		"FLAVIO ALFARO",
+		"JAMA",
+		"JARAMIJO",
+		"JIPIJAPA",
+		"JUNIN",
+		"MANTA",
+		"MONTECRISTI",
+		"TENA",
+		"ARCHIDONA",
+		"CARLOS JULIO AROSEMENA TOLA",
+		"EL CHACO",
+		"QUIJOS"
+	]
+},
+{
+	"_id": {
+		"$oid": "62e398fe99bbf1a57edefe92"
+	},
+	"provincia": "SANTA ELENA",
+	"cantones": [
+		"SANTA ELENA",
+		"LA LIBERTAD",
+		"SALINAS"
+	]
+},
+{
+	"_id": {
+		"$oid": "62e3990399bbf1a57edefe93"
+	},
+	"provincia": "SANTO DOMINGO DE LOS TSACHILAS",
+	"cantones": [
+		"SANTO DOMINGO",
+		"LA CONCORDIA"
+	]
+},
+{
+	"_id": {
+		"$oid": "62e3990899bbf1a57edefe94"
+	},
+	"provincia": "SUCUMBIOS",
+	"cantones": [
+		"LAGO AGRIO",
+		"CASCALES",
+		"CUYABENO",
+		"GONZALO PIZARRO",
+		"PUTUMAYO",
+		"SHUSHUFINDI",
+		"SUCUMBIOS"
+	]
+},
+{
+	"_id": {
+		"$oid": "62e39cbc99bbf1a57edefe95"
+	},
+	"provincia": "TUNGURAHUA",
+	"cantones": [
+		"AMBATO",
+		"BAÑOS",
+		"CEVALLOS",
+		"MOCHA",
+		"PATATE",
+		"PELILEO",
+		"QUERO",
+		"SANTIAGO DE PILLARO",
+		"TISALEO"
+	]
+},
+{
+	"_id": {
+		"$oid": "62e39d1999bbf1a57edefe96"
+	},
+	"provincia": "ZAMORA CHINCHIPE",
+	"cantones": [
+		"ZAMORA",
+		"CENTINELA DEL CONDOR",
+		"CHINCHIPE",
+		"EL PANGUI",
+		"NANGARITZA",
+		"PALANDA",
+		"PAQUISHA",
+		"YACUANBI",
+		"YANTZAZA"
+	]
+},
+{
+	"_id": {
+		"$oid": "62e39d2299bbf1a57edefe97"
+	},
+	"provincia": "ESMERALDAS",
+	"cantones": [
+		"ESMERALDAS",
+		"ATACAMES",
+		"ELOY ALFARO",
+		"MUISNE",
+		"QUININDE",
+		"RIOVERDE",
+		"SAN LORENZO"
+	]
+},
+{
+	"_id": {
+		"$oid": "62e39eb199bbf1a57edefe98"
+	},
+	"provincia": "GALAPAGOS",
+	"cantones": [
+		"SAN CRITOBAL",
+		"ISABELA",
+		"SANA CRUZ"
+	]
+},
+{
+	"_id": {
+		"$oid": "62e39f5499bbf1a57edefe99"
+	},
+	"provincia": "LOS RIOS",
+	"cantones": [
+		"BABAHOYO",
+		"BABA",
+		"BUENA FE",
+		"MOCACHE",
+		"MONTALVO",
+		"PALENQUE",
+		"PUEBLOVIJEO",
+		"QUEVEDO",
+		"QUINSALOMA",
+		"URDANETA",
+		"VALENCIA",
+		"VENTANAS",
+		"VINCES"
+	]
+},
+{
+	"_id": {
+		"$oid": "62e3a24f99bbf1a57edefe9a"
+	},
+	"provincia": "ORELLANA",
+	"cantones": [
+		"FRANCISCO DE ORELLANA",
+		"AGUARICO",
+		"LA JOYA DE LOS SACHAS",
+		"LORETO"
+	]
+},
+{
+	"_id": {
+		"$oid": "62e3a25999bbf1a57edefe9b"
+	},
+	"provincia": "PASTAZA",
+	"cantones": [
+		"PUYO",
+		"ARAJUNO",
+		"MERA",
+		"SANTA CLARA"
+	]
+},
+{
+	"_id": {
+		"$oid": "62e3a26499bbf1a57edefe9c"
+	},
+	"provincia": "PICHINCHA",
+	"cantones": [
+		"QUITO",
+		"CAYAMBE",
+		"MEJIA",
+		"PEDRO MONCAYO",
+		"PEDRO VICENTE MALDONADO",
+		"PUERTO QUITO",
+		"RUMIÑAHUI",
+		"SAN MIGUEL DE LOS BANCOS"
+	]
+}]
+

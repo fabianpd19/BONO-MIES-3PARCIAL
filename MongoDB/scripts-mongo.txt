@@ -1,0 +1,64 @@
+//GRUPO 9 PROGRAMACIÓN
+// PALMA FABIAN
+// MISHELL CASTELLANO
+
+//comandos usados
+
+show dbs
+
+use bono-mies-data
+
+db.test.find().pretty()
+
+db.test.find({"cedula"})
+
+db.getCollection("test").find({"cedula":"2300284342"}).pretty()
+
+//bakcup de base de datos
+
+
+//creacion de coleccion para las fechas de pago del mies
+db.fechas_pago_mies.insert({'digito':'1','dia':'1, 11, 21'});
+db.fechas_pago_mies.insert({'digito':'2','dia':'2, 12, 22'});
+db.fechas_pago_mies.insert({'digito':'3','dia':'3, 13, 23'});
+db.fechas_pago_mies.insert({'digito':'4','dia':'4, 14, 24'});
+db.fechas_pago_mies.insert({'digito':'5','dia':'5, 15, 25'});
+db.fechas_pago_mies.insert({'digito':'6','dia':'6, 16, 26'});
+db.fechas_pago_mies.insert({'digito':'7','dia':'7, 17, 27'});
+db.fechas_pago_mies.insert({'digito':'8','dia':'8, 18, 28});
+db.fechas_pago_mies.insert({'digito':'9','dia':'9, 19, 29'});
+db.fechas_pago_mies.insert({'digito':'0','dia':'10, 20, 30'});
+db.fechas_pago_mies.find().pretty()
+
+//ingreso de provincias y cantones: https://prnt.sc/fh0HfRFf7Xom
+db.provincias_cantones.insert({"provincia":"AZUAY", "cantones": ["CUENCA", "GUALACEO", "NABÓN", "PAUTE", "PUCARA", "SAN FERNANDO","SANTA ISABEL", "SIGSIG", "OÑA", "CHORDELEG", "EL PAN", "SEVILLA DE ORO", "GUACHAPALA", "CAMILO PONCE ENRÍQUEZ"]})
+db.provincias_cantones.insert({"provincia":"BOLIVAR", "cantones": ["GUARANDA", "CHIMBO", "ECHEANDÍA", "SAN MIGUEL", "CALUMA", "LAS NAVES"]})
+db.provincias_cantones.insert({"provincia":"CAÑAR", "cantones": ["AZOGUES", "BIBLIÁN", "CAÑAR", "LA TRONCAL", "EL TAMBO ", "DÉLEG", "SUSCAL"]})
+db.provincias_cantones.insert({"provincia":"CARCHI", "cantones": ["TULCÁN", "BOLÍVAR", "ESPEJO", "MIRA", "MONTÚFAR ", "SAN PEDRO DE HUACA"]})
+db.provincias_cantones.insert({"provincia":"COTOPAXI", "cantones": ["LATACUNGA", "LA MANÁ", "PANGUA", "PUJILI", "SALCEDO ", "SAQUISILÍ", "SIGCHOS"]})
+db.provincias_cantones.insert({"provincia":"CHIMBORAZO", "cantones": ["RIOBAMBA", "ALAUSI", "COLTA", "CHAMBO", "CHUNCHI ", "GUAMOTE", "GUANO", "PALLATANGA", "PENIPE", "CUMANDÁ"]})
+db.provincias_cantones.insert({"provincia":"EL ORO", "cantones": [ "MACHALA", "ARENILLAS", "ATAHUALPA", "BALSAS ", "CHILLA", "EL GUABO", "HUAQUILLAS", "MARCABELÍ", "PASAJE", "PIÑAS", "PORTOVELO", "SANTA ROSA", "ZARUMA", "LAS LAJAS"]})
+db.provincias_cantones.insert({"provincia":"GUAYAS", "cantones": [ "GUAYAQUIL", "DURAN", "SAMBORONDON", "DAULLE ", "NOBOL", "YAGUACHI", "MILAGRO", "PLAYAS "]})
+db.provincias_cantones.insert({"provincia":"IMBABURA", "cantones": [ "IBARRA", "ANTONIO ANTE", "COTACACHI", "OTAVALO ", "PIMANPIRO", "SAN MIGUEL DE URCUQUI "]})
+db.provincias_cantones.insert({"provincia":"LOJA", "cantones": [ "SAN SEBASTIAN", "SUCRE", "EL  VALLE", "SAGRARIO ", "CHANTACO", "CHUQUIRIBAMBA", "MALACATOS", "EL CISNE", "GUALEL", "JIMBILLA", "SAN LUCAS", "SAN PEDRO", "SANTIAGO", "TAQUIL", "VILCABAMBA", "YNGANA", "QUINARA"]})
+db.provincias_cantones.insert({"provincia":"MANABI", "cantones": [ "BOLIVAR", "CHONE","EL CARMEN","FLAVIO ALFARO","JAMA","JARAMIJO","JIPIJAPA","JUNIN","MANTA","MONTECRISTI","OLMEDO","PAJAN","PEDERNALES","PORTOVIEJO","PUERTO LOPEZ","ROCAFUERTE","SAN VICENTE","SANTA ANA","SUCRE","TOSAGUA","VEINTICUATRO DE MAYO"]})
+db.provincias_cantones.insert({"provincia":"MORONA SANTIAGO", "cantones": [ "MORONA", "GUALAQUIZA","HUAMBOOYA"," LIMON INDANZA","LOGROÑO","PABLO SEXTO","PALORA","SAN JUAN BOSCO","SANTIAGO DE MENDEZ","SUCUA","TAISHA","TIWINTZA"]})
+db.provincias_cantones.insert({"provincia":"NAPO", "cantones": [ "BOLIVAR", "CHONE","EL CARMEN","FLAVIO ALFARO","JAMA","JARAMIJO","JIPIJAPA","JUNIN","MANTA","MONTECRISTI","TENA","ARCHIDONA","CARLOS JULIO AROSEMENA TOLA","EL CHACO","QUIJOS"]})
+db.provincias_cantones.insert({"provincia":"SANTA ELENA","cantones": ["SANTA ELENA","LA LIBERTAD","SALINAS"]})
+db.provincias_cantones.insert({"provincia":"SANTO DOMINGO DE LOS TSACHILAS","cantones": ["SANTO DOMINGO","LA CONCORDIA"]})
+db.provincias_cantones.insert({"provincia":"SUCUMBIOS", "cantones": ["LAGO AGRIO", "CASCALES","CUYABENO","GONZALO PIZARRO","PUTUMAYO","SHUSHUFINDI","SUCUMBIOS"]})
+db.provincias_cantones.insert({"provincia":"TUNGURAHUA","cantones": ["AMBATO","BAÑOS","CEVALLOS","MOCHA","PATATE","PELILEO","QUERO","SANTIAGO DE PILLARO","TISALEO"]})
+db.provincias_cantones.insert({"provincia":"ZAMORA CHINCHIPE","cantones": ["ZAMORA","CENTINELA DEL CONDOR","CHINCHIPE","EL PANGUI","NANGARITZA","PALANDA","PAQUISHA","YACUANBI","YANTZAZA"]})
+db.provincias_cantones.insert({"provincia":"ESMERALDAS","cantones": ["ESMERALDAS","ATACAMES","ELOY ALFARO","MUISNE","QUININDE","RIOVERDE","SAN LORENZO"]})
+db.provincias_cantones.insert({"provincia":"LOS RIOS","cantones": ["BABAHOYO","BABA","BUENA FE","MOCACHE","MONTALVO","PALENQUE","PUEBLOVIJEO","QUEVEDO","QUINSALOMA", "URDANETA","VALENCIA","VENTANAS","VINCES"]})
+db.provincias_cantones.insert({"provincia":"GALAPAGOS","cantones": ["SAN CRITOBAL","ISABELA","SANA CRUZ"]})
+db.provincias_cantones.insert({"provincia":"PASTAZA","cantones": ["SAN CRITOBAL","ISABELA","SANA CRUZ"]})
+db.provincias_cantones.insert({"provincia":"ORELLANA","cantones": [ "FRANCISCO DE ORELLANA","AGUARICO","LA JOYA DE LOS SACHAS","LORETO"]})
+db.provincias_cantones.insert({"provincia":"PASTAZA", "cantones": [ "PUYO","ARAJUNO","MERA","SANTA CLARA"]})
+db.provincias_cantones.insert({"provincia":"PICHINCHA", "cantones": [ "QUITO","CAYAMBE","MEJIA","PEDRO MONCAYO","PEDRO VICENTE MALDONADO","PUERTO QUITO","RUMIÑAHUI","SAN MIGUEL DE LOS BANCOS"]})
+
+//exportancion de base de datos de mongodb collection test
+mongoexport --db bono-mies-data --collection test --out C:\Users\Usuario\Desktop\[NRC_6181]_NombreApellidoEstudiante_ProyectoUnidad2ScriptsAvance\bono-mies-data.json --jsonArray --pretty
+mongoexport --db bono-mies-data --collection fechas_pago_mies --out C:\Users\Usuario\Desktop\[NRC_6181]_NombreApellidoEstudiante_ProyectoUnidad2ScriptsAvance\fechas_pago.json --jsonArray --pretty
+mongoexport --db bono-mies-data --collection provincias_cantones --out C:\Users\Usuario\Desktop\[NRC_6181]_NombreApellidoEstudiante_ProyectoUnidad2ScriptsAvance\provincias_cantones_ec.json --jsonArray --pretty
+
