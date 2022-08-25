@@ -212,7 +212,7 @@ if __name__ == "__main__":
         6,
     ]
 
-veces = 0
+veces = 5
 
 genero = ["HOMBRE", "MUJER"]
 estados = ["POBREZA EXTREMA", "NONE", "DISCAPACIDAD", "MADRE SOLTERA"]
@@ -266,8 +266,8 @@ for k in range (veces):
         'beneficiario' : beneficario
         }
         print (diccionario)
-        updateDic=coleccion.insert_one(diccionario)
-        print(f"{bcolors.OK} {k+1} File Saved Successfully!{bcolors.RESET}")
+        # updateDic=coleccion.insert_one(diccionario)
+        # print(f"{bcolors.OK} {k+1} File Saved Successfully!{bcolors.RESET}")
 
 # diccionario={
 # 'nombre': 'FABIAN', 
@@ -291,14 +291,14 @@ for k in range (veces):
 # print(f"{bcolors.OK} {1} File Saved Successfully!{bcolors.RESET}")
 
 
-print(coleccion.distinct("cedula"))
+# print(coleccion.distinct("cedula"))
 
 n = 4
 
-print("\nCEDULAS QUE NO EXISTEN")
+# print("\nCEDULAS QUE NO EXISTEN")
 
-for i in range (n):
-    print(generarCedula())
+# for i in range (n):
+#     print(generarCedula())
 
     
 

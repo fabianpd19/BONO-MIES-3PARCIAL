@@ -3,38 +3,7 @@ import unittest
 from main_bono import *
 from logicaNegocios import *
 
-class TestCedulasPalma(unittest.TestCase):
-
-    def test_verdadero_falso(self):
-        result = str_to_bool("2412431594")
-        self.assertTrue(result)
-
-    def test_verdadero_falso2(self):
-        result = str_to_bool("1746312830")
-        self.assertTrue(result)
-
-    def test_verdadero_falso3(self):
-        result = str_to_bool("1343565583")
-        self.assertTrue(result)
-
-    def test_verdadero_falso4(self):
-        result = str_to_bool("2042459881")
-        self.assertTrue(result)
-
-    def test_verdadero_falso5(self):
-        result = str_to_bool("0643883225")
-        self.assertTrue(result)
-
-    def test_verdadero_falso6(self):
-        result = str_to_bool("0326895198")
-        self.assertTrue(result)
-
-    def test_verdadero_falso7(self):
-        result = str_to_bool("1032378805")
-        self.assertTrue(result)
-
-
-class TestCedulasCastellano(unittest.TestCase):
+class TestCedulas(unittest.TestCase):
 
     def test_verdadero_falso(self):
         result = str_to_bool("2483845560")

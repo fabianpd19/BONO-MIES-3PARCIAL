@@ -57,6 +57,9 @@ db.provincias_cantones.insert({"provincia":"ORELLANA","cantones": [ "FRANCISCO D
 db.provincias_cantones.insert({"provincia":"PASTAZA", "cantones": [ "PUYO","ARAJUNO","MERA","SANTA CLARA"]})
 db.provincias_cantones.insert({"provincia":"PICHINCHA", "cantones": [ "QUITO","CAYAMBE","MEJIA","PEDRO MONCAYO","PEDRO VICENTE MALDONADO","PUERTO QUITO","RUMIÑAHUI","SAN MIGUEL DE LOS BANCOS"]})
 
+db.roles_bono_mies.insert({"rol": "ADMIN", "permisos": ["registrar informacion", "editar informacion", "acceder a informacion", "eliminar informacion"]})
+db.roles_bono_mies.insert({"rol": "USUARIO", "permisos": ["registrar informacion", "editar informacion", "ver informacion usuario"]})
+
 //exportancion de base de datos de mongodb collection test
 mongoexport --db bono-mies-data --collection test --out C:\Users\Usuario\Desktop\[NRC_6181]_NombreApellidoEstudiante_ProyectoUnidad2ScriptsAvance\bono-mies-data.json --jsonArray --pretty
 mongoexport --db bono-mies-data --collection fechas_pago_mies --out C:\Users\Usuario\Desktop\[NRC_6181]_NombreApellidoEstudiante_ProyectoUnidad2ScriptsAvance\fechas_pago.json --jsonArray --pretty
