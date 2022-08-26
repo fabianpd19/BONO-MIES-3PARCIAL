@@ -1,5 +1,4 @@
 import datetime
-from numpy import diag
 import requests
 import os
 import json

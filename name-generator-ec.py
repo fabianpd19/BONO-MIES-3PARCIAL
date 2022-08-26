@@ -195,9 +195,9 @@ if __name__ == "__main__":
     #########################################
 
     listaHijos = [
-        'NONE',
-        'NONE',
-        'NONE',
+        0,
+        0,
+        0,
         1,
         1,
         1,
@@ -212,17 +212,20 @@ if __name__ == "__main__":
         6,
     ]
 
-veces = 5
+veces = 0
 
 genero = ["HOMBRE", "MUJER"]
 estados = ["POBREZA EXTREMA", "NONE", "DISCAPACIDAD", "MADRE SOLTERA"]
+beneficarioLista = ["NO", "EN PROCESO"]
 
 
 for k in range (veces):
         print('\n')
         provincia = generarDatosProvincia()
         canton = generarDatosCanton(provincia)
-        beneficario = 'NO'
+    
+        randomB = r.randint(0,1)
+        beneficario = beneficarioLista[randomB]
 
         i = r.randint(0, 1)
         if i == 0:
@@ -266,29 +269,29 @@ for k in range (veces):
         'beneficiario' : beneficario
         }
         print (diccionario)
-        # updateDic=coleccion.insert_one(diccionario)
-        # print(f"{bcolors.OK} {k+1} File Saved Successfully!{bcolors.RESET}")
+        updateDic=coleccion.insert_one(diccionario)
+        print(f"{bcolors.OK} {k+1} File Saved Successfully!{bcolors.RESET}")
 
-# diccionario={
-# 'nombre': 'FABIAN', 
-# 'nombre2':'ALEXANDER', 
-# 'apellido': 'PALMA', 
-# 'apellido2': 'DUEÑAS',
-# 'provincia': 'SANTO DOMINGO', 
-# 'canton': 'SANTO DOMINGO', 
-# 'cedula': '2300284342', 
-# 'edad': '19',
-# 'genero': 'HOMBRE',
-# 'estado': 'NONE',
-# 'rol': 'ADMIN',
-# 'correoElectronico': 'fabianapd12@gmail.com',
-# 'hijos': 'NONE',
-# 'beneficiario' : 'NO'
-# }
+diccionario={
+'nombre': 'FABIAN', 
+'nombre2':'ALEXANDER', 
+'apellido': 'PALMA', 
+'apellido2': 'DUEÑAS',
+'provincia': 'SANTO DOMINGO', 
+'canton': 'SANTO DOMINGO', 
+'cedula': '2300284342', 
+'edad': '19',
+'genero': 'HOMBRE',
+'estado': 'NONE',
+'rol': 'ADMIN',
+'correoElectronico': 'fabianapd12@gmail.com',
+'hijos': 0,
+'beneficiario' : 'NO'
+}
 
-# print (diccionario)
-# updateDic=coleccion.insert_one(diccionario)
-# print(f"{bcolors.OK} {1} File Saved Successfully!{bcolors.RESET}")
+print (diccionario)
+updateDic=coleccion.insert_one(diccionario)
+print(f"{bcolors.OK} {1} File Saved Successfully!{bcolors.RESET}")
 
 
 # print(coleccion.distinct("cedula"))
@@ -299,71 +302,4 @@ n = 4
 
 # for i in range (n):
 #     print(generarCedula())
-
-    
-
-
-class persona:
-    def __init__(self, nombre, nombre2, apellido, apellido2, provincia, canton, cedula, edad, genero, estado, rol, correoElectronico, hijos):
-        self.nombre = nombre
-        self.nombre2 = nombre2
-        self.apellido = apellido
-        self.apellido2 = apellido2
-        self.canton = canton
-        self.provincia = provincia
-        self.cedula = cedula
-        self.edad = edad
-        self.genero = genero
-        self.estado = estado
-        self.rol = rol
-        self.correoElectronico = correoElectronico
-        self.hijos = hijos
-    
-    @property
-    def nombre (self):
-        return self._nombre
-
-    @nombre.setter
-    def nombre (self, nombre):
-        self._nombre = nombre
-
-    @property
-    def nombre2 (self):
-        return self._nombre2
-
-    @nombre.setter
-    def nombre2 (self, nombre2):
-        self._nombre2 = nombre2
-
-    @property
-    def apellido (self):
-        return self._apellido
-
-    @apellido.setter
-    def apellido (self, apellido):
-        self._apellido = apellido   
-
-    @property
-    def apellido2 (self):
-        return self._apellido2
-
-    @apellido2.setter
-    def apellido2 (self, apellido2):
-        self._apellido2 = apellido2 
-
-    @property
-    def provincia (self):
-        return self._provincia
-
-    @provincia.setter
-    def provincia (self, provincia):
-        self._provincia = provincia
-
-    @property
-    def canton (self):
-        return self._provincia
-
-    @canton.setter
-    def canton (self, canton):
-        self._canton = canton   
         

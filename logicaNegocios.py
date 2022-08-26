@@ -128,3 +128,36 @@ class PageLoader():
         for busqueda in coleccionTotal:
             coleccionGeneros.append(busqueda)
         return coleccionGeneros
+
+    def diccionarioPyC (self):
+        '''Creación de array de la colección de provincias, que solo contengan provincias'''
+        coleccionTotal=self.coleccionPyC.find()
+        self.diccionario = {}
+        for busqueda in coleccionTotal:
+            provincia = busqueda["provincia"]
+            self.diccionario [provincia] = PageLoader.cantones(self, provincia)
+        return self.diccionario
+
+    def cantones(self, provincia):
+        '''Creación de array de la colección de provincias, que solo contengan provincias'''
+        query = {"provincia": provincia}
+        specificFind = self.coleccionPyC.find(query)
+        self.array= []
+        for find in specificFind:
+            self.array = (find["cantones"])
+        return self.array
+
+    def listaGeneros(self):
+        '''Creación de array de la colección de provincias, que solo contengan provincias'''
+        coleccionTotal=self.coleccionPersonas.distinct("genero")
+        self.coleccionGeneros=[]
+        for busqueda in coleccionTotal:
+            self.coleccionGeneros.append(busqueda)
+        return self.coleccionGeneros
+
+    def estadosUsuarios(self):
+        coleccionTotal = self.coleccionPersonas.distinct("estado")
+        self.coleccionGeneros=[]
+        for busqueda in coleccionTotal:
+            self.coleccionGeneros.append(busqueda)
+        return self.coleccionGeneros
