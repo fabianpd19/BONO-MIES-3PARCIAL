@@ -1,7 +1,7 @@
 import unittest
 
+from clases_personas import *
 from main_bono import *
-from logicaNegocios import *
 
 class TestCedulas(unittest.TestCase):
 

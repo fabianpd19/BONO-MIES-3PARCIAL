@@ -23,6 +23,9 @@ ingresarInfoFondo = "fondo_add_info.png"
 datosUsuarioFondo = "fondo_datos_user.png" 
 '''fondo de la ventana 'mostrar información' del usuario'''
 
+adminFondo = "fondo_admin.png"
+'''fondo de la ventana principal administrador'''
+
 
 class DbConnectionMeta(type):
     '''

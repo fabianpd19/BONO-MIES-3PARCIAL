@@ -173,6 +173,28 @@ def correoElectronico (nombre, apellido, cedula):
 
     return nombre.lower() + apellido.lower() + cedula + correo
 
+def adminGenerator():
+    diccionarioAdmin={
+    'nombre': 'FABIAN', 
+    'nombre2':'ALEXANDER', 
+    'apellido': 'PALMA', 
+    'apellido2': 'DUEÑAS',
+    'provincia': 'SANTO DOMINGO', 
+    'canton': 'SANTO DOMINGO', 
+    'cedula': '2300284342', 
+    'edad': '19',
+    'genero': 'HOMBRE',
+    'estado': 'NONE',
+    'rol': 'ADMIN',
+    'correoElectronico': 'fabianapd12@gmail.com',
+    'hijos': 0,
+    'beneficiario' : 'NO'
+    }
+
+    print (diccionarioAdmin)
+    updateDic=coleccion.insert_one(diccionarioAdmin)
+    print(f"{bcolors.OK} {1} File Saved Successfully!{bcolors.RESET}")
+
 if __name__ == "__main__":
     myClient = pymongo.MongoClient("mongodb://localhost:27017/")
     MONGO_BASED = "nombres_apellidos" #bono-mies-data
@@ -180,126 +202,81 @@ if __name__ == "__main__":
     COLECCION2 = "nombres_mujeres"
     COLECCION3 = "apellidos_total"
 
+    MONGO_MIES = "bono-mies-data"
+    COLECCION_MIES = "personas_bono_mies"
+    COLECCION2_MIES = "provincias_cantones"
+
     baseDatos = myClient[MONGO_BASED]
     coleccionHombres = baseDatos [COLECCION]
     coleccionMujeres = baseDatos [COLECCION2]
     coleccionApellidos = baseDatos [COLECCION3]
 
-    MONGO_MIES = "bono-mies-data"
-    COLECCION_MIES = "personas_bono_mies"
-    COLECCION2_MIES = "provincias_cantones"
-
     baseDatosMies = myClient[MONGO_MIES]
     coleccion = baseDatosMies [COLECCION_MIES]
     coleccionPyC = baseDatosMies [COLECCION2_MIES]
-    #########################################
 
     listaHijos = [
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1,
-        2,
-        2,
-        2,
-        3,
-        3,
-        4,
-        5,
-        6,
+        0, 0, 0, 1, 1,
+        1, 1, 2, 2, 2,
+        3, 3, 4, 5, 6,
     ]
 
-veces = 0
+    genero = ["HOMBRE", "MUJER"]
+    estados = ["POBREZA EXTREMA", "NONE", "DISCAPACIDAD", "MADRE SOLTERA"]
+    beneficarioLista = ["NO", "EN PROCESO"]
 
-genero = ["HOMBRE", "MUJER"]
-estados = ["POBREZA EXTREMA", "NONE", "DISCAPACIDAD", "MADRE SOLTERA"]
-beneficarioLista = ["NO", "EN PROCESO"]
+    veces = 0
 
-
-for k in range (veces):
-        print('\n')
-        provincia = generarDatosProvincia()
-        canton = generarDatosCanton(provincia)
-    
-        randomB = r.randint(0,1)
-        beneficario = beneficarioLista[randomB]
-
-        i = r.randint(0, 1)
-        if i == 0:
-            nombre = generarDatosHombres()
-            nombre2 = generarDatosHombres()
-            contador = r.randint(0, 2)
-            hijos = random.randint(0, 14)
-            if contador == 0 or contador == 2:
-                beneficario = 'SI'
-
-        else:
-            nombre = generarDatosMujer()
-            nombre2 = generarDatosMujer()
-            contador = r.randint(0, 3)
-            
-            if contador == 3:
-                hijos = random.randint(3, 14)
-            else:
-                hijos = random.randint(0, 14)
-                beneficario = 'SI'
-
-        apellido = generarDatosApellidos()
-        apellido2 = generarDatosApellidos()
-        cedula = generarCedula()
-        edad = r.randint(18, 65)
-        hijototal = listaHijos[hijos] 
-
-        diccionario={'nombre': nombre, 
-        'nombre2':nombre2, 
-        'apellido': apellido, 
-        'apellido2': apellido2,
-        'provincia': provincia, 
-        'canton': canton, 
-        'cedula': cedula, 
-        'edad': edad,
-        'genero': genero[i],
-        'estado': estados[contador],
-        'rol': 'USUARIO',
-        'correoElectronico': correoElectronico(nombre, apellido, cedula),
-        'hijos': hijototal,
-        'beneficiario' : beneficario
-        }
-        print (diccionario)
-        updateDic=coleccion.insert_one(diccionario)
-        print(f"{bcolors.OK} {k+1} File Saved Successfully!{bcolors.RESET}")
-
-diccionario={
-'nombre': 'FABIAN', 
-'nombre2':'ALEXANDER', 
-'apellido': 'PALMA', 
-'apellido2': 'DUEÑAS',
-'provincia': 'SANTO DOMINGO', 
-'canton': 'SANTO DOMINGO', 
-'cedula': '2300284342', 
-'edad': '19',
-'genero': 'HOMBRE',
-'estado': 'NONE',
-'rol': 'ADMIN',
-'correoElectronico': 'fabianapd12@gmail.com',
-'hijos': 0,
-'beneficiario' : 'NO'
-}
-
-print (diccionario)
-updateDic=coleccion.insert_one(diccionario)
-print(f"{bcolors.OK} {1} File Saved Successfully!{bcolors.RESET}")
-
-
-# print(coleccion.distinct("cedula"))
-
-n = 4
-
-# print("\nCEDULAS QUE NO EXISTEN")
-
-# for i in range (n):
-#     print(generarCedula())
+    for k in range (veces):
+            print('\n')
+            provincia = generarDatosProvincia()
+            canton = generarDatosCanton(provincia)
         
+            randomB = r.randint(0,1)
+            beneficario = beneficarioLista[randomB]
+
+            i = r.randint(0, 1)
+            if i == 0:
+                nombre = generarDatosHombres()
+                nombre2 = generarDatosHombres()
+                contador = r.randint(0, 2)
+                hijos = random.randint(0, 14)
+                if contador == 0 or contador == 2:
+                    beneficario = 'SI'
+
+            else:
+                nombre = generarDatosMujer()
+                nombre2 = generarDatosMujer()
+                contador = r.randint(0, 3)
+                
+                if contador == 3:
+                    hijos = random.randint(3, 14)
+                else:
+                    hijos = random.randint(0, 14)
+                    beneficario = 'SI'
+
+            apellido = generarDatosApellidos()
+            apellido2 = generarDatosApellidos()
+            cedula = generarCedula()
+            edad = r.randint(18, 65)
+            hijototal = listaHijos[hijos] 
+
+            diccionario={'nombre': nombre, 
+            'nombre2':nombre2, 
+            'apellido': apellido, 
+            'apellido2': apellido2,
+            'provincia': provincia, 
+            'canton': canton, 
+            'cedula': cedula, 
+            'edad': edad,
+            'genero': genero[i],
+            'estado': estados[contador],
+            'rol': 'USUARIO',
+            'correoElectronico': correoElectronico(nombre, apellido, cedula),
+            'hijos': hijototal,
+            'beneficiario' : beneficario
+            }
+            print (diccionario)
+            updateDic=coleccion.insert_one(diccionario)
+            print(f"{bcolors.OK} {k+1} File Saved Successfully!{bcolors.RESET}")
+

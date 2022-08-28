@@ -4,7 +4,6 @@ from tkinter import*
 from tkinter import ttk
 from tkinter import messagebox
 from tkinter import font
-from turtle import width
 from feriados import *
 from logicaNegocios import *
 import re
@@ -253,18 +252,27 @@ class ventanasMies (ventanaTkinter):
         '''
         Configuración de la ventana principal (validación de la cédula de identidad)
         '''
+        #Asignación de un ícono a la ventana
         self.ventana.tk.call('wm', 'iconphoto', self.ventana._w, tk.PhotoImage(file='icono.png'))
+        #Títutlo a la ventana
         self.ventana.title("BONO - MIES")
+        #Color de fondo de la ventana
         self.ventana.config(bg="white")
+        #Tamaño de la ventana
         self.ventana.geometry("600x600")
+        #No poder modificar el tamaño de la ventana
         self.ventana.resizable(width="False", height="False")
         
         #Asignación de un fondo al programa
         self.img = tkinter.PhotoImage(file = logginFondo)
         Label(self.ventana, image = self.img ).pack()
+
+        '''Entrada de texto de la cédula de identidad del usuario'''
         self.entradaCedula=tk.Entry(self.ventana, font=font.Font(family="Arial", size = "10"),textvar="", width=32, relief="flat")
         self.entradaCedula.place(x=150, y=292)
-        ventanasMies.widgetsValidar(self)
+
+        '''Llamada a los widgets de validación'''
+        self.widgetsValidar()
 
     def widgetsValidar (self):
         '''
@@ -295,8 +303,15 @@ class ventanasMies (ventanaTkinter):
         registroInfo.place(x=150, y=332)   
     
     def ventanaRegistro(self):
+        '''
+        Definición de la ventana la cual se va a hacer uso para el ingreso de datos de los usuarios
+        '''
+        #Cierre de la ventana anterior
         self.ventana.withdraw()
+        #Asinación de una subventana
         self.ventanaAgregarInfo=tk.Toplevel()
+        
+        '''Propiedades de la ventana'''
         self.ventanaAgregarInfo.title("Registro de información")
         self.ventanaAgregarInfo.geometry("600x600")
         self.ventanaAgregarInfo.resizable(width="False", height="False")
@@ -305,8 +320,8 @@ class ventanasMies (ventanaTkinter):
         Label(self.ventanaAgregarInfo, image = self.img ).pack()
         
     def ventanaRegistroW(self):
-        ventanasMies.ventanaRegistro(self)
-        ventanasMies.widgetsVentanaRegistro(self)
+        self.ventanaRegistro()
+        self.widgetsVentanaRegistro()
     
     def widgetsVentanaRegistro(self):
         '''
@@ -533,6 +548,7 @@ class ventanasMies (ventanaTkinter):
             elif(find["beneficiario"]=="NO"):
                 aprobado=tk.Label(self.ventanaMostrarInf, text = "[❌] Denegado")
                 aprobado.config(bg= "white", fg="red",font=("Arial", 10))
+
             elif(find["beneficiario"]=="EN PROCESO"):
                 aprobado=tk.Label(self.ventanaMostrarInf, text = "[⌛] En proceso")
                 aprobado.config(bg= "white", fg="gray",font=("Arial", 10))
@@ -549,13 +565,8 @@ class ventanaMiesAdmin(ventanaTkinter):
         Ventana a configurar (Heredado de la ventana ventanaTkinter)
     Métodos:
     ----------
-    __init__(self, ventana):
-        Cosntructor de los atributos de la clase
-    ventanasMies (self):
-        Permite la configuración directa de la ventana.
-    widgetsValidar (self):
-        Mostrar por pantalla los widgets que se van a utilizar en la ventana principal
-
+    ventanaControl (self):
+        Permite la configuración directa de la ventana administrador.
     '''
 
     def ventanaControl (self):
@@ -564,21 +575,86 @@ class ventanaMiesAdmin(ventanaTkinter):
         '''
         self.ventana.title("BONO - MIES")
         self.ventana.config(bg="white")
-        w, h = self.ventana.winfo_screenwidth(), self.ventana.winfo_screenheight()
-        self.ventana.geometry("%dx%d+0+0" % (w, h))
+        self.ventana.geometry("1040x500")
+        #self.ventana.resizable(width="False", height="False")
+
+        self.marco = Frame()
+        #self.marco.grid(row = 0, column=0)
+        #self.marco.config(bg = "#f5f5f5", width=1040, height=250)
+        # self.img = tkinter.PhotoImage(file = "BONO.png")
+        # Label(self.marco, image = self.img ).pack()
+
+        self.tablaDatos()
+
+    def tablaDatos (self):
+        scrollbarX = Scrollbar (self.ventana, orient = HORIZONTAL)
+        scrollbarY = Scrollbar (self.ventana, orient = VERTICAL)
+        
+        self.tablaDatos = ttk.Treeview(self.ventana, columns =  ('#1', '#2', '#3', '#4', '#5', '#6', '#7', '#8', '#9', '#10', '#11', '#12'))
+        
+        self.tablaDatos.place(relx=0.00, rely=0.200, width=1020, height=380)
+
+        scrollbarX.place(relx= 0, rely =0.965, width=1020)
+        scrollbarY.place(relx= 0.98, rely =0.0, height=500)
+        
+        self.tablaDatos.configure(xscrollcommand=scrollbarX.set, yscrollcommand=scrollbarY.set)
+        scrollbarY.configure(command=self.tablaDatos.yview)
+        scrollbarX.configure(command=self.tablaDatos.xview)
+
+        #self.tablaDatos.grid(row=1, column= 0)
+        self.tablaDatos.heading("#0", text = "Cédula",anchor=W)
+        self.tablaDatos.heading("#1", text = "Nombre",anchor=W)
+        self.tablaDatos.heading("#2", text = "Nombre2",anchor=W)
+        self.tablaDatos.heading("#3", text = "Apellido",anchor=W)
+        self.tablaDatos.heading("#4", text = "Apellido2",anchor=W)
+        self.tablaDatos.heading("#5", text = "Provincia",anchor=W)
+        self.tablaDatos.heading("#6", text = "Cantón",anchor=W)
+        self.tablaDatos.heading("#7", text = "Genero",anchor=W)
+        self.tablaDatos.heading("#8", text = "Estado",anchor=W)
+        self.tablaDatos.heading("#9", text = "Rol",anchor=W)
+        self.tablaDatos.heading("#10", text = "CorreoElectronico",anchor=W)
+        self.tablaDatos.heading("#11", text = "Hijos",anchor=W)
+        self.tablaDatos.heading("#12", text = "Beneficiario",anchor=W)
+
+        self.insertDatesTable()
+
+    def insertDatesTable(self):
+        listaDatos = conectarMongo.coleccionPersonas.find()
+        for listaDatos in conectarMongo.coleccionPersonas.find():
+            self.tablaDatos.insert("", END, text = (listaDatos["cedula"]), values=(listaDatos["nombre"], 
+            listaDatos["nombre2"],
+            listaDatos["apellido"],
+            listaDatos["apellido2"],
+            listaDatos["provincia"],
+            listaDatos["canton"],
+            listaDatos["genero"],
+            listaDatos["estado"],
+            listaDatos["rol"],
+            listaDatos["correoElectronico"],
+            listaDatos["hijos"],
+            listaDatos["beneficiario"]
+            ))
+
 
 def validarCedula(cedula):
     '''
-    Devolver true si está o false si no está el dato a buscar en la base de datos
+    Funcón encarga de validar que exista una cédula en la base de datos
     '''
     cedulasTotal=conectarMongo.queryCedulas()
     if cedula in cedulasTotal:
+        '''
+        
+        '''
         personaMies.cedula=cedula
         validarRango()
     else:
         messagebox.showwarning("Error", "Ingrese una cédula de identidad válida.")
 
 def on_combobox_select(event):
+    '''
+    Función encargada de validar la información de un 
+    combobox dependiente de otro por medio de un diccionario
+    '''
     window.cantonEntry.set("")
     window.cantonEntry.config(values=conectarMongo.diccionarioPyC()[window.provinciaEntry.get()])
     pass
@@ -637,14 +713,20 @@ def validarDatos (datoValidar):
     return (any(chr.isdigit() for chr in datoValidar))
 
 def validarRango():
+    '''
+    Función encargada de validar el rango de un usuario mediante 
+    la cédula ingresada.
+    '''
     query={"cedula": personaMies.cedula}
     find = conectarMongo.coleccionPersonas.find()
     specificFind = conectarMongo.coleccionPersonas.find(query)
     for find in specificFind:
         if find["rol"] == "ADMIN":
-            ventana = Tk()
-            adminVentana=ventanaMiesAdmin(ventana)
-            adminVentana.ventanaControl()
+            ventana.destroy()
+            ventanaAdmin = Tk()
+            ventanaAdmin=ventanaMiesAdmin(ventanaAdmin)
+            ventanaAdmin.ventanaControl()
+            ventanaAdmin.mainloop()
         else:
             window.mostrarInformacion()
 
@@ -670,12 +752,16 @@ if __name__ == '__main__':
 
     '''Llamamos a la ventana principal'''
     window.ventanasMies()
+
+    #######################
+    # ventana1 = Tk()
+    # adminVentana=ventanaMiesAdmin(ventana1)
+    # adminVentana.ventanaControl()
+
+    #######################
     
     '''Instancia de la clase personaMies'''
     personaBono = personaMies("", "", "", "", "", "", "", "", "", "", "", "", "")
 
     '''Función mainloop'''
     ventana.mainloop()
-
-    
-
