@@ -1,5 +1,5 @@
 from logicaNegocios import *
-from refacotizacion_main import *
+from main_bono import *
 
 
 def getDatos (nombre, nombre2, apellido, apellido2, provincia, canton, cedula, edad, genero, estado, correoElectronico, hijos):

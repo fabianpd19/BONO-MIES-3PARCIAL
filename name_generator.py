@@ -73,7 +73,6 @@ def numeroTelefon():
     ph_no.append("09")
     for i in range(0, 8):
         ph_no.append(r.randint(0, 9))
-    
     num = "".join(map(str, ph_no))
     
     return num
@@ -225,7 +224,7 @@ if __name__ == "__main__":
     estados = ["POBREZA EXTREMA", "NONE", "DISCAPACIDAD", "MADRE SOLTERA"]
     beneficarioLista = ["NO", "EN PROCESO"]
 
-    veces = 0
+    veces = 1
 
     for k in range (veces):
             print('\n')
@@ -260,7 +259,7 @@ if __name__ == "__main__":
             cedula = generarCedula()
             edad = r.randint(18, 65)
             hijototal = listaHijos[hijos] 
-
+            
             diccionario={'nombre': nombre, 
             'nombre2':nombre2, 
             'apellido': apellido, 
@@ -277,6 +276,5 @@ if __name__ == "__main__":
             'beneficiario' : beneficario
             }
             print (diccionario)
-            updateDic=coleccion.insert_one(diccionario)
+            #updateDic=coleccion.insert_one(diccionario)
             print(f"{bcolors.OK} {k+1} File Saved Successfully!{bcolors.RESET}")
-
