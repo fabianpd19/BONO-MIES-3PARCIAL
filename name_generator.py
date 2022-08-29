@@ -180,7 +180,7 @@ def adminGenerator():
     'apellido2': 'DUEÑAS',
     'provincia': 'SANTO DOMINGO', 
     'canton': 'SANTO DOMINGO', 
-    'cedula': '2300284342', 
+    'cedula': '1234512345', 
     'edad': '19',
     'genero': 'HOMBRE',
     'estado': 'NONE',
@@ -224,14 +224,16 @@ if __name__ == "__main__":
     estados = ["POBREZA EXTREMA", "NONE", "DISCAPACIDAD", "MADRE SOLTERA"]
     beneficarioLista = ["NO", "EN PROCESO"]
 
-    veces = 1
+    
+    adminGenerator()
+    veces = 0   
 
     for k in range (veces):
             print('\n')
             provincia = generarDatosProvincia()
             canton = generarDatosCanton(provincia)
         
-            randomB = r.randint(0,1)
+            randomB = r.randint(0,0)
             beneficario = beneficarioLista[randomB]
 
             i = r.randint(0, 1)
@@ -276,5 +278,6 @@ if __name__ == "__main__":
             'beneficiario' : beneficario
             }
             print (diccionario)
-            #updateDic=coleccion.insert_one(diccionario)
+            updateDic=coleccion.insert_one(diccionario)
             print(f"{bcolors.OK} {k+1} File Saved Successfully!{bcolors.RESET}")
+

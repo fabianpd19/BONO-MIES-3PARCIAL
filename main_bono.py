@@ -486,12 +486,11 @@ class ventanasMies (ventanaTkinter):
         self.edadEntry= tk.Entry(self.ventanaAgregarInfo, font=font.Font(family="Arial", size = "10"),textvar="", width=15, relief="flat")
         self.edadEntry.place(x=180, y=408)
         '''Entrada de texto del correo electrónico del usuario'''
-        self.correoElectronico= tk.Entry(self.ventanaAgregarInfo, font=font.Font(family="Arial", size = "10"),textvar="", width=15, relief="flat")
+        self.correoElectronico= tk.Entry(self.ventanaAgregarInfo, font=font.Font(family="Arial", size = "10"),textvar="", width=20, relief="flat")
         self.correoElectronico.place(x=180, y=457)
         '''Entrada de texto de la cantidad de hijos del usuario'''
         self.hijosEntry= tk.Entry(self.ventanaAgregarInfo, font=font.Font(family="Arial", size = "10"),textvar="", width=15, relief="flat")
         self.hijosEntry.place(x=425, y=165)
-
 
         #COMBOBOXS
         '''Menu despegable para elegir la provincia y el cantón del usuario'''
@@ -524,6 +523,7 @@ class ventanasMies (ventanaTkinter):
         getDatosBoton.place(x=400, y=464)
 
     def ingresarInformacion(self):
+        self.beneficario=validarBeneficiario(self.estadoEntry.get(), self.hijosEntry.get())
         if(bool(getDatos(
                 self.nombreEntry.get(),
                 self.nombre2Entry.get(),
@@ -537,11 +537,12 @@ class ventanasMies (ventanaTkinter):
                 self.estadoEntry.get(),
                 self.correoElectronico.get(),
                 self.hijosEntry.get(),
-                self.estado
-            ))):
+                self.estado,
+                self.beneficario
+                )
+            )):
             messagebox.showinfo("Datos Ingresados", "¡Datos ingresados correctamente!")
-        
-
+         
     def mostrarInformacion(self):
         '''
         El procedimiento mostrarInformacion se encarga de mostrar toda
@@ -801,6 +802,14 @@ class ventanaMiesAdmin(ventanaTkinter):
         mostrarLabel=tk.Label(self.ventanaCRUD, text = "Rol: ")
         mostrarLabel.config(bg= "white", fg="#4779b2",font=("Arial", 8, "bold"))
         mostrarLabel.place(x=530, y=75)
+        '''Label texto roles de los usuarios existentes'''
+        mostrarLabel=tk.Label(self.ventanaCRUD, text = "Benefiario: ")
+        mostrarLabel.config(bg= "white", fg="#4779b2",font=("Arial", 8, "bold"))
+        mostrarLabel.place(x=650, y=75)
+        '''Label texto, buscar por cédula'''
+        mostrarLabel=tk.Label(self.ventanaCRUD, text = "Buscar por cédula: ")
+        mostrarLabel.config(bg= "white", fg="#4779b2",font=("Arial", 8, "bold"))
+        mostrarLabel.place(x=750, y=1)
 
         '''Entradas de texto (Entrys)'''
         '''Entrada de texto del primer nombre'''
@@ -827,6 +836,9 @@ class ventanaMiesAdmin(ventanaTkinter):
         '''Entrada de texto de la cantidad de hijos del usuario'''
         self.hijosEntry= tk.Entry(self.ventanaCRUD, font=font.Font(family="Arial", size = "8"),textvar="", width=15, relief="solid")
         self.hijosEntry.place(x=400, y=75)
+        '''Entrada de texto para buscar un usuario por su cédula'''
+        self.buscarCedula = tk.Entry(self.ventanaCRUD, font=font.Font(family="Arial", size = "8"),textvar="", width=15, relief="solid")
+        self.buscarCedula.place(x=870, y=1)
 
         #COMBOBOXS
         '''Menu despegable para elegir la provincia y el cantón del usuario'''
@@ -851,45 +863,69 @@ class ventanaMiesAdmin(ventanaTkinter):
         self.estadoEntry.place(x=400, y=50)
 
         '''Menú despegable donde mostrará la lista de roles a las que se puede elegir'''
-        self.estadoEntry = ttk.Combobox(self.ventanaCRUD, value= conectarMongo.mostrarRoles(), width=15, state="readonly")
-        self.estadoEntry.place(x=560, y=75)
+        self.rolEntry = ttk.Combobox(self.ventanaCRUD, value= conectarMongo.mostrarRoles(), width=10, state="readonly")
+        self.rolEntry.place(x=560, y=75)
+
+        '''Menú despegable donde mostrará la lista de beneficiarios a las que se puede elegir'''
+        self.beneficarioEntry = ttk.Combobox(self.ventanaCRUD, value= conectarMongo.beneficariosUsuarios(), width=10, state="readonly")
+        self.beneficarioEntry.place(x=720, y=75)
         
         #BOTONES
-        getDatosBoton= tk.Button(self.ventanaCRUD, text= "Ingresar Datos", 
-            cursor="hand2", bg= "#0a509f",fg= "white",  
-            width=10, height=1, relief="flat", 
+
+        '''Botón que permite actualizar la tabla'''
+        getDatosBoton= tk.Button(self.ventanaCRUD, text= "Agregar", 
+            cursor="hand2", bg= "#5172f3",fg= "white",  
+            width=10, height=1, relief="flat", font=("Arial", 8, "bold"),
             command = self.actualizarTabla)
         getDatosBoton.place(x=530, y=1)
 
+        '''Botón inserta datos en la tabla como a su vez en la base de datos'''
         actualizarTabla= tk.Button(self.ventanaCRUD, text= "Actualizar", 
-            cursor="hand2", bg= "#0A9F45",fg= "white",  
-            width=10, height=1, relief="flat", command = self.insertDatesTable)
-
+            cursor="hand2", bg= "#1b9e1d",fg= "white",  
+            width=10, height=1, relief="flat", font=("Arial", 8, "bold"),
+            command = self.insertDatesTable)
         actualizarTabla.place(x=530, y=30)
 
+        '''Botón inserta datos en la tabla como a su vez en la base de datos'''
         editarTabla= tk.Button(self.ventanaCRUD, text= "Editar", 
-            cursor="hand2", bg= "#0A9F8F",fg= "white",  
-            width=10, height=1, relief="flat", command = self.obtenerDato)
-
+            cursor="hand2", bg= "#edc30f",fg= "white",  
+            width=10, height=1, relief="flat", font=("Arial", 8, "bold"),
+            command = self.obtenerDato)
         editarTabla.place(x=620, y=1)
 
+        '''Botón elimina datos en la tabla como a su vez en la base de datos'''
         eliminarTabla= tk.Button(self.ventanaCRUD, text= "Eliminar", 
-            cursor="hand2", bg= "#9F0A25",fg= "white",  
-            width=10, height=1, relief="flat", command = self.elimarDato)
-
+            cursor="hand2", bg= "#ff0206",fg= "white",  
+            width=10, height=1, relief="flat", font=("Arial", 8, "bold"),
+            command = self.elimarDato)
         eliminarTabla.place(x=620, y=30)
+
+        '''Botón elimina datos en la tabla como a su vez en la base de datos'''
+        eliminarTabla= tk.Button(self.ventanaCRUD, text= "🔎", 
+            cursor="hand2", bg= "#0a509f",fg= "white",  
+            width=2, height=1, relief="flat", font=("Arial", 8, "bold"),
+            command = self.buscarDatoEnTabla)
+        eliminarTabla.place(x=970, y=1)
     
     def insertDatesTable(self):
         '''
         Función que permite ingresar datos a la tabla y mostrarla en la misma
         (Esta se actualizará cada que se llame a la misma)
         '''
+        #Elimnar datos dentro de la base de datos, permitiendo a actualización de la misma
         datos = self.tablaDatos.get_children()
         for dato in datos:
             self.tablaDatos.delete(dato)
 
+        #Llenar las casillas de la tabla con los datos de la base de datos
         listaDatos = conectarMongo.coleccionPersonas.find()
+        
         for listaDatos in conectarMongo.coleccionPersonas.find():
+            '''
+            Bucle donde se van a insertar todos los datos que existen en la base de datos
+            dentro de la tabla.
+            '''
+            #Insertamos datos
             self.tablaDatos.insert("", END, text = (listaDatos["cedula"]), values=(listaDatos["nombre"], 
             listaDatos["nombre2"],
             listaDatos["apellido"],
@@ -905,6 +941,9 @@ class ventanaMiesAdmin(ventanaTkinter):
             ))
     
     def actualizarTabla (self):
+        '''
+        Actualización de datos dentro de la tabla
+        '''
         getDatos(
                 self.nombreEntry.get(),
                 self.nombre2Entry.get(),
@@ -918,20 +957,71 @@ class ventanaMiesAdmin(ventanaTkinter):
                 self.estadoEntry.get(),
                 self.correoElectronico.get(),
                 self.hijosEntry.get(),
-                self.estadoEntry.get()
+                self.rolEntry.get(),
+                self.beneficarioEntry.get()
             )
+        #Llamamos a la función para actualizar la tabla de datos.
         self.insertDatesTable()
         
     def obtenerDato (self):
+        '''
+        Método el cual nos permite obtener el dato de la tabla
+        seleccionando los items de la misma.
+        ---
+        Return
+        -------
+        return item_details.get("text")
+            Retorna la cédula de la casilla selecionada
+        '''
         selected_item = self.tablaDatos.focus()
         item_details = self.tablaDatos.item(selected_item)
         return item_details.get("text")
 
     def elimarDato (self):
+        '''
+        Método el cual nos permite elimar un dato de la base de datos
+        y a su vez, actualizar la tabla para que este ya no se encuentre 
+        en la misma.
+        '''
         query = {"cedula": self.obtenerDato()}
         conectarMongo.coleccionPersonas.delete_one(query)
         self.insertDatesTable()
 
+    def buscarDatoEnTabla(self):
+        '''Busca datos correspondientes a la cédula de identidad de un usuario'''
+        #Elimnar datos dentro de la base de datos, permitiendo a actualización de la misma
+        datos = self.tablaDatos.get_children()
+        for dato in datos:
+            self.tablaDatos.delete(dato)
+
+        #Llenar las casillas de la tabla con los datos de la base de datos
+        query = {'cedula': self.buscarCedula.get()}
+        listaDatos = conectarMongo.coleccionPersonas.find()
+        specificFind = conectarMongo.coleccionPersonas.find(query)
+
+        for listaDatos in specificFind:
+            '''
+            Bucle donde se van a insertar todos los datos que existen en la base de datos
+            dentro de la tabla.
+            '''
+            #Insertamos datos
+            self.tablaDatos.insert("", END, text = (listaDatos["cedula"]), values=(listaDatos["nombre"], 
+            listaDatos["nombre2"],
+            listaDatos["apellido"],
+            listaDatos["apellido2"],
+            listaDatos["provincia"],
+            listaDatos["canton"],
+            listaDatos["genero"],
+            listaDatos["estado"],
+            listaDatos["rol"],
+            listaDatos["correoElectronico"],
+            listaDatos["hijos"],
+            listaDatos["beneficiario"]
+            ))
+        
+    def editarDatos(self):
+        pass
+        
 def validarCedula(cedula):
     '''
     Funcón encarga de validar que exista una cédula en la base de datos
@@ -966,7 +1056,7 @@ def on_combobox_select1(event):
     ventanaAdmin.cantonEntry.config(values=conectarMongo.diccionarioPyC()[ventanaAdmin.provinciaEntry.get()])
     pass
 
-def getDatos (nombre, nombre2, apellido, apellido2, provincia, canton, cedula, edad, genero, estado, correoElectronico, hijos, rol):
+def getDatos (nombre, nombre2, apellido, apellido2, provincia, canton, cedula, edad, genero, estado, correoElectronico, hijos, rol, beneficario):
     '''
     Método el cual se encarga validar cada uno de los datos que ingresa un usuario:
     El ingreso de datos personales como nombres o apellidos serán validados que no tengan números
@@ -998,7 +1088,7 @@ def getDatos (nombre, nombre2, apellido, apellido2, provincia, canton, cedula, e
                                                                 'rol': rol,
                                                                 'correoElectronico': correoElectronico,
                                                                 'hijos': hijos,
-                                                                'beneficiario' : "EN PROCESO"
+                                                                'beneficiario' : beneficario
                                                                 }
                                                     #Ingresamos el diccionario a nuestra base de datos.
                                                     updateDataBase=conectarMongo.coleccionPersonas.insert_one(diccionario)
@@ -1041,6 +1131,38 @@ def validarFecha():
     else:
         '''En caso de que esté en una fecha laborable si podremos ingresar nueva información'''
         window.ventanaRegistroW()
+
+def validarBeneficiario(estado, hijos):
+    '''
+    Validar si un usuario es beneficiario o no del bono mediante sus datos
+    ---
+    Parámetros
+    --------
+    estado: str
+        El estado en el que se encuentra el usuario
+    hijos: int
+        La cantidad de hijos que tiene el usuario
+    ---
+    Return
+    -------
+        return beneficario
+            Si el usuario cumple con la condiciones se retonará una cadena
+            con que es beneficario, caso contrario retornará una cadena
+            que diga que no lo es.
+    '''
+    listaEstados=conectarMongo.estadosUsuarios()
+    beneficario = "NO"
+    if estado == listaEstados[0]:
+        if int(hijos) >= 1:
+            beneficario = "SI"
+    elif estado == listaEstados [1]:
+        if int(hijos) >= 1:
+            beneficario = "SI"
+    elif estado == listaEstados [3]:
+        if int(hijos) >= 1:
+            beneficario = "SI"
+    
+    return beneficario
 
 
 

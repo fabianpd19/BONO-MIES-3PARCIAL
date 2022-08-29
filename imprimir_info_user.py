@@ -1,32 +1,65 @@
-from fpdf import FPDF
+import time
+from reportlab.lib.enums import TA_JUSTIFY
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib.units import inch
 
-class PDF (FPDF):
-    pass
-    def logo(self, name, x, y, w, h):
-        self.image(name, x, y, w, h)
+doc = SimpleDocTemplate("form_letter.pdf",pagesize=letter,
+                        rightMargin=72,leftMargin=72,
+                        topMargin=72,bottomMargin=18)
+Story=[]
+logo = "BONO.png"
+magName = "Pythonista"
+issueNum = 12
+subPrice = "99.00"
+limitedDate = "03/05/2010"
+freeGift = "tin foil hat"
 
-    def text(self, name):
-        with open  (name, 'rb') as xy:
-            txt = xy.read().decode('latin-1')
-        
-        self.set_xy(10.0, 80.0)
-        self.set_text_color(76.0, 32.0, 250.0)
-        self.set_font('Arial', '', 12)
-        self.multi_cell(0, 10, txt)
-    
-    def titles (self, title):
-        self.set_xy(0.0, 0.0)
-        self.set_font('Arial', 'B', 16)
-        self.set_text_color(220,50, 50)
-        self.cell(w=210, h=40, align='C', txt = title, border = 0)
+formatted_time = time.ctime()
+full_name = "Mike Driscoll"
+address_parts = ["411 State St.", "Marshalltown, IA 50158"]
 
-pdf = PDF()
-pdf.add_page()
+im = Image(logo, 2*inch, 0.5*inch)
+Story.append(im)
 
-#14.58
-#2.30
+styles=getSampleStyleSheet()
+styles.add(ParagraphStyle(name='Justify', alignment=TA_JUSTIFY))
+ptext = '%s' % formatted_time
 
-pdf.logo('BONO.png', 1, 1, 116.64, 18.4)
-pdf.titles("Hola mundo")
-pdf.set_author('Fabian')
-pdf.output('tests.pdf', 'F')
+Story.append(Paragraph(ptext, styles["Normal"]))
+Story.append(Spacer(1, 12))
+
+# Create return address
+ptext = '%s' % full_name
+Story.append(Paragraph(ptext, styles["Normal"]))       
+for part in address_parts:
+    ptext = '%s' % part.strip()
+    Story.append(Paragraph(ptext, styles["Normal"]))   
+
+Story.append(Spacer(1, 12))
+ptext = 'Dear %s:' % full_name.split()[0].strip()
+Story.append(Paragraph(ptext, styles["Normal"]))
+Story.append(Spacer(1, 12))
+
+ptext = 'We would like to welcome you to our subscriber base for %s Magazine! \
+        You will receive %s issues at the excellent introductory price of $%s. Please respond by\
+        %s to start receiving your subscription and get the following free gift: %s.' % (magName, 
+                                                                                                issueNum,
+                                                                                                subPrice,
+                                                                                                limitedDate,
+                                                                                                freeGift)
+Story.append(Paragraph(ptext, styles["Justify"]))
+Story.append(Spacer(1, 12))
+
+
+ptext = 'Thank you very much and we look forward to serving you.'
+Story.append(Paragraph(ptext, styles["Justify"]))
+Story.append(Spacer(1, 12))
+ptext = 'Sincerely,'
+Story.append(Paragraph(ptext, styles["Normal"]))
+Story.append(Spacer(1, 48))
+ptext = 'Ima Sucker'
+Story.append(Paragraph(ptext, styles["Normal"]))
+Story.append(Spacer(1, 12))
+doc.build(Story)

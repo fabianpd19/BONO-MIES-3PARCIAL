@@ -219,3 +219,18 @@ class PageLoader():
         for busqueda in coleccionTotal:
             self.colecctioEstado.append(busqueda)
         return self.colecctioEstado
+
+    def beneficariosUsuarios(self):
+        '''
+        Creación de array de la colección de los estados de los usuarios
+        ----
+        Return:
+        --------
+            return self.colecctioEstado
+                Retornar un array con los estados de la base de datos
+        '''
+        coleccionTotal = self.coleccionPersonas.distinct("beneficiario")
+        self.colecctioEstado=[]
+        for busqueda in coleccionTotal:
+            self.colecctioEstado.append(busqueda)
+        return self.colecctioEstado
